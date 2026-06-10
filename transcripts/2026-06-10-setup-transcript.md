@@ -69,5 +69,13 @@ this transcript file under `transcripts/`.
 - Repository created from template: complete.
 - Task brief read: complete.
 - SUEWS smoke test: complete as a demo setup check, with diagnostic caveat.
-- GitHub Pages: pending browser settings and render check.
-- Commit and push: pending after files are staged.
+- GitHub Pages: complete after the user enabled Pages from `main` / `/docs`.
+- Commit and push: complete.
+
+## Final verification
+
+Assistant: Verified that the public Pages URL renders with HTTP 200 and includes
+the page title "SUEWS hackathon practice setup".
+
+- Repository URL: https://github.com/farrahdingal/suews-hackathon-practice
+- Pages URL: https://farrahdingal.github.io/suews-hackathon-practice/
