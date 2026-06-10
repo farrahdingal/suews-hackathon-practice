@@ -1,0 +1,23 @@
+{
+  "purpose": "Practice smoke test for the SUEWS Community Hackathon setup",
+  "created_at_utc": "2026-06-10T13:05:04Z",
+  "repository": "farrahdingal/suews-hackathon-practice",
+  "repository_commit_before_run": "486181fe8e4897762afe2870015ebe4446694b36",
+  "case_directory": "analysis/suews-smoke-test",
+  "config_created_from": "suews init --template simple-urban",
+  "validated_config": "analysis/suews-smoke-test/updated_sample_config.yml",
+  "run_command": "suews run analysis/suews-smoke-test/updated_sample_config.yml",
+  "diagnostic_command": "suews diagnose --format json analysis/suews-smoke-test",
+  "summary_command": "suews summarise --format json --variables QN,QH,QE,T2,RH2 analysis/suews-smoke-test",
+  "schema_version": "2026.5",
+  "suews_version": "2026.6.5",
+  "supy_version": "2026.6.5",
+  "suews_git_commit_reported_by_cli": "9dae7a8",
+  "input_forcing": "analysis/suews-smoke-test/Kc_2012_data_60.txt",
+  "primary_output": "analysis/suews-smoke-test/Output/KCL1_2012_SUEWS_60.txt",
+  "notes": [
+    "This is the bundled simple-urban KCL/London sample case.",
+    "It confirms that the local SUEWS agent/runtime can initialise, validate, run, and diagnose a SUEWS simulation.",
+    "It is not a site-specific or hackathon-city result."
+  ]
+}
