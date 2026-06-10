@@ -14,6 +14,9 @@ I ran the bundled `simple-urban` starter case, which uses the KCL/London sample
 configuration and forcing data. The run completed with SUEWS/SuPy `2026.6.5`
 and wrote an hourly output file for 8,784 time steps.
 
+The SUEWS agent checks used were `inspect_config`, `assess_readiness`,
+`validate_config`, `diagnose_run`, and `summarise_run`.
+
 Selected output summary:
 
 | Variable | Mean | Min | Max | Missing |
@@ -30,6 +33,35 @@ This is a setup check only. The site, land cover, and forcing come from the
 bundled sample case, not the hackathon focus city. The diagnostic report found
 no fatal failures, but it retained a warning about mean energy-balance closure
 residual, so this result should not be used as scientific evidence.
+
+## Sample assumptions still in this run
+
+The SUEWS agent readiness check marked this as **Level 1 - demo**, not a
+site-specific analysis. These inputs are still from the packaged sample case:
+
+| Sample assumption | Current value | Why it matters |
+| --- | --- | --- |
+| Location | KCL/London, lat `51.51`, lon `-0.12`, altitude `10.7`, timezone `0.0` | This controls sun angle and radiation timing, which affects the energy balance. |
+| Land cover | paved `0.43`, buildings `0.38`, evergreen trees `0.00`, deciduous trees `0.02`, grass `0.03`, bare soil `0.00`, water `0.14` | These fractions weight albedo, heat storage, evaporation, and sensible heat. |
+| Weather forcing | `Kc_2012_data_60.txt` | This supplies radiation, air temperature, humidity, wind, and rain. |
+
+## What this teaches for the hackathon
+
+For the real hackathon city, the goal is not just to produce a number. A strong
+submission should show what was changed from the template, what remained
+assumed, and what that means for the heat-risk interpretation.
+
+Most important inputs to replace or justify:
+
+1. Location and timezone.
+2. Weather forcing.
+3. Land-cover fractions and albedo.
+4. Anthropogenic heat drivers.
+5. Material and thermal properties.
+6. Vegetation and water assumptions.
+
+The public story should include an "adjusted vs still assumed" table. Honest
+caveats make the result more credible, not weaker.
 
 ## SUEWS citation
 
