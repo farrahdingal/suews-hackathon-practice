@@ -77,6 +77,16 @@ This page is a rehearsal, not the final judged analysis.
 
 The SUEWS diagnostic tool also kept one warning about an energy-balance closure ratio. The direct component arithmetic for the plotted heat flows was effectively closed, but I would still flag this warning to a table lead rather than ignore it.
 
+## How This Trial Maps To The Judging Criteria
+
+| Criterion | What this trial already demonstrates | What I still need for the real submission |
+| --- | --- | --- |
+| Scientific soundness | A reproducible SUEWS run, changed land cover, stated assumptions, validation checks, output figure, and SUEWS citation. | Replace the London sample with the focus-city dataset, run all relevant neighbourhoods, and resolve or explain any diagnostic warnings with expert support. |
+| Policy relevance and honest bridging | The page separates physical heat hazard from social vulnerability and explains that the hazard-to-risk bridge is not complete yet. | Apply the provided UNDRR-style vulnerability or risk indicator and say clearly where the indicator is strong or uncertain. |
+| Professional contribution | This page is designed as a forum-ready practice post: a transparent trial workflow with caveats and questions for feedback. | Post it to the SUEWS community forum before the event and use the feedback to improve the final workflow. |
+| Presentation quality | The page has a single motivating question, a short method, one clear figure, findings, and caveats. | For the final entry, show ranked focus-city neighbourhoods and make the main takeaway visible within the first screen. |
+| Innovation and AI collaboration | The workflow uses the AI assistant to set up, run, diagnose, visualise, and interpret a SUEWS case in plain language. | Export the AI transcript and keep the best prompts, checks, failures, and corrections as evidence of the collaboration. |
+
 ## What I Would Ask On The Day
 
 > Using the focus-city dataset, run SUEWS for every neighbourhood for the baseline hot-season weather and the hotter-future +3 C stress test. Summarise which neighbourhoods have the largest increase in dangerous heat hours and night-time heat retention. Then combine those heat-hazard outputs with the provided social-vulnerability indicators, and rank the neighbourhoods where physical heat and social vulnerability overlap most strongly. Explain the assumptions and where the hazard-to-risk bridge is uncertain.
