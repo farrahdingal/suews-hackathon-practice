@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc">
+  <title id="title">Dense residential London hot-week SUEWS energy balance summary</title>
+  <desc id="desc">A summary chart showing that during sunny hours 66 percent of available energy heats the air, 24 percent is stored in buildings and paving, and 10 percent goes to evaporation and plant cooling.</desc>
+  <rect width="1000" height="620" fill="#ffffff"/>
+  <text x="50" y="58" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#222">Dense Residential London Hot-Week Trial Run</text>
+  <text x="50" y="92" font-family="Arial, sans-serif" font-size="17" fill="#444">Sunny-hour split of available energy from the SUEWS practice simulation</text>
+
+  <line x1="90" y1="460" x2="620" y2="460" stroke="#222" stroke-width="2"/>
+  <line x1="90" y1="150" x2="90" y2="460" stroke="#222" stroke-width="2"/>
+  <text x="40" y="154" font-family="Arial, sans-serif" font-size="13" fill="#555">70%</text>
+  <text x="40" y="239" font-family="Arial, sans-serif" font-size="13" fill="#555">50%</text>
+  <text x="40" y="327" font-family="Arial, sans-serif" font-size="13" fill="#555">30%</text>
+  <text x="47" y="458" font-family="Arial, sans-serif" font-size="13" fill="#555">0%</text>
+  <line x1="85" y1="150" x2="620" y2="150" stroke="#dddddd" stroke-width="1"/>
+  <line x1="85" y1="238" x2="620" y2="238" stroke="#dddddd" stroke-width="1"/>
+  <line x1="85" y1="326" x2="620" y2="326" stroke="#dddddd" stroke-width="1"/>
+
+  <rect x="135" y="169" width="115" height="291" fill="#d6604d"/>
+  <rect x="305" y="354" width="115" height="106" fill="#7b5ea7"/>
+  <rect x="475" y="416" width="115" height="44" fill="#1b9e77"/>
+
+  <text x="192" y="143" font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#222">66%</text>
+  <text x="192" y="166" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#222">188 W m-2</text>
+  <text x="362" y="328" font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#222">24%</text>
+  <text x="362" y="351" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#222">70 W m-2</text>
+  <text x="532" y="390" font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#222">10%</text>
+  <text x="532" y="413" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#222">28 W m-2</text>
+
+  <text x="192" y="494" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#222">Heat to air</text>
+  <text x="192" y="518" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#555">QH</text>
+  <text x="362" y="494" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#222">Stored heat</text>
+  <text x="362" y="518" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#555">QS, buildings and paving</text>
+  <text x="532" y="494" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#222">Evaporation</text>
+  <text x="532" y="518" font-family="Arial, sans-serif" font-size="15" text-anchor="middle" fill="#555">QE, trees and gardens</text>
+
+  <rect x="690" y="143" width="250" height="320" rx="10" fill="#f5f7fa" stroke="#d9dee7"/>
+  <text x="715" y="184" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#222">Plain-language reading</text>
+  <circle cx="720" cy="227" r="6" fill="#d6604d"/>
+  <text x="738" y="233" font-family="Arial, sans-serif" font-size="16" fill="#333">Most sunny-hour energy</text>
+  <text x="738" y="254" font-family="Arial, sans-serif" font-size="16" fill="#333">heats the air directly.</text>
+  <circle cx="720" cy="303" r="6" fill="#7b5ea7"/>
+  <text x="738" y="309" font-family="Arial, sans-serif" font-size="16" fill="#333">A quarter is stored in</text>
+  <text x="738" y="330" font-family="Arial, sans-serif" font-size="16" fill="#333">roads, roofs, and walls.</text>
+  <circle cx="720" cy="379" r="6" fill="#1b9e77"/>
+  <text x="738" y="385" font-family="Arial, sans-serif" font-size="16" fill="#333">Vegetation cooling is</text>
+  <text x="738" y="406" font-family="Arial, sans-serif" font-size="16" fill="#333">present, but smaller.</text>
+
+  <text x="50" y="580" font-family="Arial, sans-serif" font-size="14" fill="#555">Practice case: KCL London sample weather, 14-21 Aug 2012; 40% buildings, 35% paved, 15% trees, 10% gardens. Not the final focus-city dataset.</text>
+</svg>
