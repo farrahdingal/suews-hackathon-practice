@@ -1,75 +1,89 @@
-# SUEWS hackathon practice setup
+# SUEWS Hackathon Trial Run
 
-This page is a public practice page for the SUEWS Community Hackathon setup.
-It is not the final judged hackathon analysis.
+## Motivating Question
 
-## Question
+**Which neighbourhoods in the focus city become most heat-risk exposed under a +3 C hotter-future stress test, and where do social vulnerabilities make that heat most dangerous?**
 
-Can this repository run one small SUEWS example end to end using the
-`suews-agent` tooling, and can the result be published with GitHub Pages?
+This is my trial run for the SUEWS Community Hackathon. The real focus-city dataset is released on the day, so this page does **not** claim to answer the final question yet. Instead, it rehearses the workflow I want to use: set up a neighbourhood, run SUEWS for a hot period, interpret the surface energy balance, and explain what would need to change when the actual city and social-vulnerability data are available.
 
-## Practice run
+## Practice Case
 
-I ran the bundled `simple-urban` starter case, which uses the KCL/London sample
-configuration and forcing data. The run completed with SUEWS/SuPy `2026.6.5`
-and wrote an hourly output file for 8,784 time steps.
+For this rehearsal, I used a simplified dense residential neighbourhood in London:
 
-The SUEWS agent checks used were `inspect_config`, `assess_readiness`,
-`validate_config`, `diagnose_run`, and `summarise_run`.
+| Input | Practice value |
+| --- | ---: |
+| Buildings | 40% |
+| Average building height | 12 m |
+| Paved streets, pavements, and car parks | 35% |
+| Street trees | 15% |
+| Small gardens / grass | 10% |
+| Open water | 0% |
 
-Selected output summary:
+The run uses the bundled KCL London sample weather, clipped to a hot summer week: **14-21 August 2012**. This gives me a realistic practice workflow, but it is still a sample case rather than the final hackathon city.
 
-| Variable | Mean | Min | Max | Missing |
-| --- | ---: | ---: | ---: | ---: |
-| QN | 44.76 | -83.80 | 646.98 | 0.0% |
-| QH | 88.76 | -40.82 | 339.70 | 0.0% |
-| QE | 27.58 | 1.70 | 195.34 | 0.0% |
-| T2 | 11.91 | -5.24 | 30.40 | 0.0% |
-| RH2 | 69.33 | 18.75 | 98.16 | 0.0% |
+## Method
 
-## Honest caveat
+1. I used the SUEWS tooling to initialise a simple urban case.
+2. I changed the land cover to match the dense residential neighbourhood above.
+3. I changed the average building height to 12 m.
+4. I selected the hottest 7-day period in the bundled KCL 2012 sample weather.
+5. I ran SUEWS and checked that the output had 168 hourly records, no missing values in the main heat-flow variables, and no validation errors.
+6. I interpreted the surface energy balance in plain language.
 
-This is a setup check only. The site, land cover, and forcing come from the
-bundled sample case, not the hackathon focus city. The diagnostic report found
-no fatal failures, but it retained a warning about mean energy-balance closure
-residual, so this result should not be used as scientific evidence.
+For the real hackathon question, I would repeat this process across the focus-city neighbourhoods, then compare the current climate run against the provided **+2 to +3 C hotter-future stress test**. The heat-hazard outputs would then be combined with the social-vulnerability indicators released on the day.
 
-## Sample assumptions still in this run
+## Findings From The Trial Run
 
-The SUEWS agent readiness check marked this as **Level 1 - demo**, not a
-site-specific analysis. These inputs are still from the packaged sample case:
+During sunny hours, the model estimated about **285 W/m2** of available energy from net radiation plus human-made heat. In this dense residential setup, that energy mostly went into heating the air and built surfaces:
 
-| Sample assumption | Current value | Why it matters |
-| --- | --- | --- |
-| Location | KCL/London, lat `51.51`, lon `-0.12`, altitude `10.7`, timezone `0.0` | This controls sun angle and radiation timing, which affects the energy balance. |
-| Land cover | paved `0.43`, buildings `0.38`, evergreen trees `0.00`, deciduous trees `0.02`, grass `0.03`, bare soil `0.00`, water `0.14` | These fractions weight albedo, heat storage, evaporation, and sensible heat. |
-| Weather forcing | `Kc_2012_data_60.txt` | This supplies radiation, air temperature, humidity, wind, and rain. |
+| Destination of sunny-hour energy | Share | Mean heat flow |
+| --- | ---: | ---: |
+| Heating the air directly, QH | 66% | 188 W/m2 |
+| Stored in buildings and paving, QS | 24% | 70 W/m2 |
+| Evaporation and plant cooling, QE | 10% | 28 W/m2 |
 
-## What this teaches for the hackathon
+The key message is that this neighbourhood behaves like a heat-retaining urban surface. With 75% of the area built or paved, most daytime energy goes into warming the air or being stored in roads, roofs, walls, and other hard materials. The trees and gardens do provide cooling through evaporation, but their share is much smaller in this setup.
 
-For the real hackathon city, the goal is not just to produce a number. A strong
-submission should show what was changed from the template, what remained
-assumed, and what that means for the heat-risk interpretation.
+![Dense residential London hot-week SUEWS energy balance](assets/energy_balance_summary.svg)
 
-Most important inputs to replace or justify:
+The surface temperature peaked at about **37.7 C**, while the modelled near-surface air temperature peaked at about **30.7 C**. At night, stored heat was released back from the urban fabric, which is one reason dense neighbourhoods can stay warm after sunset.
 
-1. Location and timezone.
-2. Weather forcing.
-3. Land-cover fractions and albedo.
-4. Anthropogenic heat drivers.
-5. Material and thermal properties.
-6. Vegetation and water assumptions.
+## How This Connects To The Hackathon Question
 
-The public story should include an "adjusted vs still assumed" table. Honest
-caveats make the result more credible, not weaker.
+This trial does not yet rank neighbourhoods by heat risk. To answer the motivating question on the day, I would ask the AI assistant and SUEWS agent to do three linked steps:
 
-## SUEWS citation
+1. **Run the heat hazard model** for each focus-city neighbourhood under the current hot-season weather.
+2. **Run the hotter-future stress test** using the provided +2 to +3 C forcing.
+3. **Combine the hazard outputs with vulnerability data** to identify where heat is both physically intense and socially dangerous.
 
-This repository should cite SUEWS in any real submission:
+The strongest final answer would not just say "where it gets hottest". It would separate:
 
-- Jarvi, L., Grimmond, C.S.B. and Christen, A. (2011). The Surface Urban Energy
-  and Water Balance Scheme (SUEWS): Evaluation in Los Angeles and Vancouver.
-  Journal of Hydrology, 411(3-4), 219-237.
-- Ward, H.C., Kotthaus, S., Jarvi, L. and Grimmond, C.S.B. (2016). Surface Urban
-  Energy and Water Balance Scheme (SUEWS): Development and evaluation at two UK
-  sites. Urban Climate, 18, 1-32.
+- neighbourhoods where the physical heat hazard is high;
+- neighbourhoods where people may be more vulnerable;
+- neighbourhoods where both overlap, creating the most urgent risk.
+
+Possible heat-hazard measures include dangerous-heat hours, high night-time temperature, heat-storage strength, and the increase in these measures under the hotter-future stress test. The exact social-risk indicator should follow the framework and data released by the organisers.
+
+## Honest Caveats
+
+This page is a rehearsal, not the final judged analysis.
+
+| What is real in this trial | What is still missing |
+| --- | --- |
+| SUEWS ran successfully end to end. | The focus-city dataset is not included here. |
+| The land-cover setup was changed from the sample. | The +3 C hotter-future forcing has not been run yet. |
+| The figure and results come from actual SUEWS output. | No social-vulnerability indicator has been calculated yet. |
+| The workflow is reproducible from this repository. | The London sample should not be treated as the hackathon result. |
+
+The SUEWS diagnostic tool also kept one warning about an energy-balance closure ratio. The direct component arithmetic for the plotted heat flows was effectively closed, but I would still flag this warning to a table lead rather than ignore it.
+
+## What I Would Ask On The Day
+
+> Using the focus-city dataset, run SUEWS for every neighbourhood for the baseline hot-season weather and the hotter-future +3 C stress test. Summarise which neighbourhoods have the largest increase in dangerous heat hours and night-time heat retention. Then combine those heat-hazard outputs with the provided social-vulnerability indicators, and rank the neighbourhoods where physical heat and social vulnerability overlap most strongly. Explain the assumptions and where the hazard-to-risk bridge is uncertain.
+
+## SUEWS Citation
+
+This trial uses SUEWS/SuPy `2026.6.5`. Any final submission should cite the current SUEWS software release and the core SUEWS papers:
+
+- Jarvi, L., Grimmond, C.S.B. and Christen, A. (2011). The Surface Urban Energy and Water Balance Scheme (SUEWS): Evaluation in Los Angeles and Vancouver. *Journal of Hydrology*, 411(3-4), 219-237.
+- Ward, H.C., Kotthaus, S., Jarvi, L. and Grimmond, C.S.B. (2016). Surface Urban Energy and Water Balance Scheme (SUEWS): Development and evaluation at two UK sites. *Urban Climate*, 18, 1-32.
